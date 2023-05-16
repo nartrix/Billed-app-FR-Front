@@ -21,6 +21,13 @@ export default class NewBill {
     const filePath = e.target.value.split(/\\/g)
     const fileName = filePath[filePath.length-1]
     const formData = new FormData()
+    const fileExtension = fileName.split('.').pop()
+
+    if (fileExtension !== 'jpg' && fileExtension !== 'jpeg' && fileExtension !== 'png') {
+        alert('Le format de fichier doit être .jpg, .jpeg ou .png')
+        return
+    }
+    
     const email = JSON.parse(localStorage.getItem("user")).email
     formData.append('file', file)
     formData.append('email', email)
