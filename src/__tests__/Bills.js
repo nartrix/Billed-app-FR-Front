@@ -89,7 +89,7 @@ describe("Given I am connected as an employee", () => {
     })
   })
   describe("when i click on icon eye", () => {
-    test('handleClickIconEye', () => {
+    test('should open the modal and display the bill image', () => {
       document.body.innerHTML = `<div id="modaleFile">
                                      <div class="modal-body"></div>
                                    </div>`;
@@ -123,13 +123,13 @@ describe("Given I am connected as an employee", () => {
         localStorage: window.localStorage,
       });
 
-      // Appeler la fonction à tester
+      // Call the function to test
       billsPage.handleClickIconEye(iconMock);
 
-      // Vérifier que la modale est affichée
-      expect(modal).toHaveBeenCalledWith('show');
+      // Check that the modal is displayed
+      expect(modal).toHaveBeenCalledWith("show");
 
-      // Vérifier que la fonction html est appelée avec le bon contenu
+      // Check that the html function is called with the correct content
       const expectedHtml = '<div style=\'text-align: center;\' class="bill-proof-container"><img width=50 src="https://example.com/bill.png" alt="Bill" /></div>';
       expect(modalBodyMock.innerHTML).toBe(expectedHtml);
     });
