@@ -90,15 +90,18 @@ describe("Given I am connected as an employee", () => {
   })
   describe("when i click on icon eye", () => {
     test('handleClickIconEye', () => {
-      const iconMock = document.createElement('div');
-      iconMock.setAttribute('data-bill-url', 'https://example.com/bill.png');
+      document.body.innerHTML = `<div id="modaleFile">
+                                     <div class="modal-body"></div>
+                                   </div>`;
+      const iconMock = document.createElement("i");
+      iconMock.setAttribute("data-bill-url", "https://example.com/bill.png");
 
-      // Créer un mock pour l'élément modaleFile
+      /* // Créer un mock pour l'élément modaleFile
       const modaleFileMock = document.createElement('div');
       modaleFileMock.id = 'modaleFile';
       const modalBodyMock = document.createElement('div');
       modalBodyMock.className = 'modal-body';
-      modaleFileMock.appendChild(modalBodyMock);
+      modaleFileMock.appendChild(modalBodyMock); */
 
       // Mock de la fonction jQuery $
       jest.mock('jquery', () => ({
@@ -109,6 +112,7 @@ describe("Given I am connected as an employee", () => {
             html: jest.fn(),
           })),
           modal: jest.fn(),
+          click: jest.fn(),
         })),
       }));
 
@@ -123,7 +127,7 @@ describe("Given I am connected as an employee", () => {
       billsPage.handleClickIconEye(iconMock);
 
       // Vérifier que la modale est affichée
-      expect(modaleFileMock).toHaveBeenCalledWith('show');
+      expect(modal).toHaveBeenCalledWith('show');
 
       // Vérifier que la fonction html est appelée avec le bon contenu
       const expectedHtml = '<div style=\'text-align: center;\' class="bill-proof-container"><img width=50 src="https://example.com/bill.png" alt="Bill" /></div>';
