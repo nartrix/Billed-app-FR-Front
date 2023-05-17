@@ -87,6 +87,9 @@ describe("Given I am connected as an employee", () => {
       // Verify that updateBill method is called
       expect(newBill.updateBill).toHaveBeenCalled();
     });
+  });
+
+  describe("When I upload a file", () => {
 
   });
 })
