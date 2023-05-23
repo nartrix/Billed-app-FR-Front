@@ -92,32 +92,7 @@ describe("Given I am connected as an employee", () => {
 
   describe("when i click on icon eye", () => {
     test('should open the modal and display the bill image', () => {
-      /* document.body.innerHTML = `<div id="modaleFile">
-                                     <div class="modal-body"></div>
-                                   </div>`;
-      const iconMock = document.createElement("i");
-      iconMock.setAttribute("data-bill-url", "https://example.com/bill.png"); */
-
-      /* // Créer un mock pour l'élément modaleFile
-      const modaleFileMock = document.createElement('div');
-      modaleFileMock.id = 'modaleFile';
-      const modalBodyMock = document.createElement('div');
-      modalBodyMock.className = 'modal-body';
-      modaleFileMock.appendChild(modalBodyMock); */
-
-      // Mock de la fonction jQuery $
-      /* jest.mock('jquery', () => ({
-        __esModule: true,
-        default: jest.fn().mockImplementation(() => ({
-          width: jest.fn(() => 100),
-          find: jest.fn().mockImplementation(() => ({
-            html: jest.fn(),
-          })),
-          modal: jest.fn(),
-          click: jest.fn(),
-        })),
-      })); */
-
+    
       const billsPage = new Bills({
         document,
         onNavigate: jest.fn(),
@@ -131,15 +106,6 @@ describe("Given I am connected as an employee", () => {
       fireEvent.click(eye)
       expect(handleClickIconEye).toHaveBeenCalled()
 
-      // Call the function to test
-     /*  billsPage.handleClickIconEye(iconMock);
-
-      // Check that the modal is displayed
-      expect('icon-eye').toHaveBeenCalledWith("show");
- */
-      // Check that the html function is called with the correct content
-      /* const expectedHtml = '<div style=\'text-align: center;\' class="bill-proof-container"><img width=50 src="https://example.com/bill.png" alt="Bill" /></div>';
-      expect(modalBodyMock.innerHTML).toBe(expectedHtml); */
     });
   })
 })
